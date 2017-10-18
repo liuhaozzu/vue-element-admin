@@ -1,13 +1,13 @@
 <template>
   <div class="login-container">
     <el-form class="card-box login-form" autoComplete="on" :model="loginForm" :rules="loginRules" ref="loginForm" label-position="left">
-      <h3 class="title">系统登录</h3>
+      <h3 class="title">JCAT Logging System Login</h3>
 
       <el-form-item prop="username">
         <span class="svg-container svg-container_login">
           <icon-svg icon-class="user" />
         </span>
-        <el-input name="username" type="text" v-model="loginForm.username" autoComplete="on" placeholder="邮箱" />
+        <el-input name="username" type="text" v-model="loginForm.username" autoComplete="on" placeholder="Email" />
       </el-form-item>
 
       <el-form-item prop="password">
@@ -15,16 +15,16 @@
           <icon-svg icon-class="password" />
         </span>
         <el-input name="password" :type="pwdType" @keyup.enter.native="handleLogin" v-model="loginForm.password" autoComplete="on"
-          placeholder="密码" />
+          placeholder="Password" />
         <span class='show-pwd' @click='showPwd'><icon-svg icon-class="eye" /></span>
       </el-form-item>
 
-      <el-button type="primary" style="width:100%;margin-bottom:30px;" :loading="loading" @click.native.prevent="handleLogin">登录</el-button>
+      <el-button type="primary" style="width:100%;margin-bottom:30px;" :loading="loading" @click.native.prevent="handleLogin">Sign In</el-button>
 
-      <div class='tips'>账号:admin 密码随便填</div>
-      <div class='tips'>账号:editor  密码随便填</div>
+      <div class='tips'>account:admin password:admin</div>
+      <div class='tips'>account:demo1 password:demo1</div>
 
-      <el-button class='thirdparty-button' type="primary" @click='showDialog=true'>打开第三方登录</el-button>
+      <el-button class='thirdparty-button' :disabled=true type="primary" @click='showDialog=true'>LDAP Sign In</el-button>
     </el-form>
 
     <el-dialog title="第三方验证" :visible.sync="showDialog">
@@ -46,14 +46,14 @@ export default {
   data() {
     const validateUsername = (rule, value, callback) => {
       if (!isvalidUsername(value)) {
-        callback(new Error('请输入正确的用户名'))
+        callback(new Error('username is not valid'))
       } else {
         callback()
       }
     }
     const validatePassword = (rule, value, callback) => {
-      if (value.length < 6) {
-        callback(new Error('密码不能小于6位'))
+      if (value.length < 5) {
+        callback(new Error('the length of password mustn\'t be less than 5'))
       } else {
         callback()
       }
@@ -90,6 +90,7 @@ export default {
                 // this.showDialog = true
           }).catch(() => {
             this.loading = false
+            this.$router.push({ path: '/' })
           })
         } else {
           console.log('error submit!!')
