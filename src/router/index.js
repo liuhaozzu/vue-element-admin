@@ -24,7 +24,7 @@ export const constantRouterMap = [
     path: '/',
     component: Layout,
     redirect: '/dashboard',
-    name: '首页',
+    name: 'Home',
     hidden: true,
     children: [{ path: 'dashboard', component: _import('dashboard/index') }]
   },
@@ -34,7 +34,7 @@ export const constantRouterMap = [
     redirect: '/introduction/index',
     icon: 'people',
     noDropdown: true,
-    children: [{ path: 'index', component: _import('introduction/index'), name: '简述' }]
+    children: [{ path: 'index', component: _import('introduction/index'), name: 'Introduction' }]
   }
 ]
 
@@ -49,59 +49,59 @@ export const asyncRouterMap = [
     path: '/permission',
     component: Layout,
     redirect: '/permission/index',
-    name: '权限测试',
+    name: 'permission test',
     icon: 'lock',
     meta: { role: ['admin'] },
     noDropdown: true,
-    children: [{ path: 'index', component: _import('permission/index'), name: '权限测试页', meta: { role: ['admin'] }}]
+    children: [{ path: 'index', component: _import('permission/index'), name: 'Permission Test', meta: { role: ['admin'] }}]
   },
   {
     path: '/icon',
     component: Layout,
     icon: 'icon',
     noDropdown: true,
-    children: [{ path: 'index', component: _import('svg-icons/index'), name: 'icons' }]
+    children: [{ path: 'index', component: _import('svg-icons/index'), name: 'Icons' }]
   },
   {
     path: '/components',
     component: Layout,
     redirect: '/components/index',
-    name: '组件',
+    name: 'Components',
     icon: 'component',
     children: [
-      { path: 'index', component: _import('components/index'), name: '介绍 ' },
-      { path: 'tinymce', component: _import('components/tinymce'), name: '富文本编辑器' },
-      { path: 'markdown', component: _import('components/markdown'), name: 'Markdown' },
-      { path: 'jsoneditor', component: _import('components/jsonEditor'), name: 'JSON编辑器' },
-      { path: 'dndlist', component: _import('components/dndList'), name: '列表拖拽' },
+      { path: 'index', component: _import('components/index'), name: 'Brief Introduction' },
+      { path: 'tinymce', component: _import('components/tinymce'), name: 'Rich Text Editor' },
+      { path: 'markdown', component: _import('components/markdown'), name: 'Markdown Editor' },
+      { path: 'jsoneditor', component: _import('components/jsonEditor'), name: 'JSON Editor' },
+      { path: 'dndlist', component: _import('components/dndList'), name: 'List Dragger' },
       { path: 'splitpane', component: _import('components/splitpane'), name: 'SplitPane' },
-      { path: 'avatarupload', component: _import('components/avatarUpload'), name: '头像上传' },
+      { path: 'avatarupload', component: _import('components/avatarUpload'), name: 'Avatar Upload' },
       { path: 'dropzone', component: _import('components/dropzone'), name: 'Dropzone' },
       { path: 'sticky', component: _import('components/sticky'), name: 'Sticky' },
       { path: 'countto', component: _import('components/countTo'), name: 'CountTo' },
-      { path: 'mixin', component: _import('components/mixin'), name: '小组件' },
-      { path: 'backtotop', component: _import('components/backToTop'), name: '返回顶部' }
+      { path: 'mixin', component: _import('components/mixin'), name: 'Widgets' },
+      { path: 'backtotop', component: _import('components/backToTop'), name: 'Top' }
     ]
   },
   {
     path: '/charts',
     component: Layout,
     redirect: '/charts/index',
-    name: '图表',
+    name: 'Charts',
     icon: 'chart',
     children: [
-      { path: 'index', component: _import('charts/index'), name: '介绍' },
-      { path: 'keyboard', component: _import('charts/keyboard'), name: '键盘图表' },
-      { path: 'keyboard2', component: _import('charts/keyboard2'), name: '键盘图表2' },
-      { path: 'line', component: _import('charts/line'), name: '折线图' },
-      { path: 'mixchart', component: _import('charts/mixChart'), name: '混合图表' }
+      { path: 'index', component: _import('charts/index'), name: 'Brief Introduction' },
+      { path: 'keyboard', component: _import('charts/keyboard'), name: 'Keyboard' },
+      { path: 'keyboard2', component: _import('charts/keyboard2'), name: 'Keyboard 2' },
+      { path: 'line', component: _import('charts/line'), name: 'Line' },
+      { path: 'mixchart', component: _import('charts/mixChart'), name: 'Mixed' }
     ]
   },
   {
     path: '/example',
     component: Layout,
     redirect: 'noredirect',
-    name: '综合实例',
+    name: 'Examples',
     icon: 'example',
     children: [
       {

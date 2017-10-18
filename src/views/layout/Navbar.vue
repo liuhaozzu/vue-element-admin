@@ -13,7 +13,7 @@
 			<el-dropdown-menu class="user-dropdown" slot="dropdown">
 				<router-link class='inlineBlock' to="/">
 					<el-dropdown-item>
-						首页
+						Home
 					</el-dropdown-item>
 				</router-link>
 				<a target='_blank' href="https://github.com/PanJiaChen/vue-element-admin/">
