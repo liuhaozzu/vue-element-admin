@@ -20,7 +20,7 @@ router.beforeEach((to, from, next) => {
       next({ path: '/' })
     } else {
       if (store.getters.roles.length === 0) { // 判断当前用户是否已拉取完user_info信息
-        /* store.dispatch('GetUserInfo').then(res => { // 拉取user_info
+        store.dispatch('GetUserInfo').then(res => { // 拉取user_info
           const roles = res.data.role
           store.dispatch('GenerateRoutes', { roles }).then(() => { // 生成可访问的路由表
             router.addRoutes(store.getters.addRouters) // 动态添加可访问路由表
@@ -30,16 +30,6 @@ router.beforeEach((to, from, next) => {
           store.dispatch('FedLogOut').then(() => {
             next({ path: '/login' })
           })
-        })*/
-        // demo code
-        const roles = 'admin'
-        store.dispatch('GetUserInfo').then(res => {
-          console.log(res)
-        })
-        store.dispatch('GenerateRoutes', { roles }).then(() => {
-          router.addRoutes(store.getters.addRouters)
-          next()
-          // next({ ...to })
         })
       } else {
         // 没有动态改变权限的需求可直接next() 删除下方权限判断 ↓

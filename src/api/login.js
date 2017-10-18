@@ -21,7 +21,7 @@ export function logout() {
 
 export function getUserInfo(token) {
   return fetch({
-    url: '/jcat-server/user/info',
+    url: '/user/info',
     method: 'get',
     params: { token }
   })
